@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Decentralized Classic Cars Marketplace</title>
+  <script defer src="bundle3261cd35d52d74fae745.js"></script></head>
+  <body class="relative bg-white flex flex-col">
+    <div class="flex justify-between p-5">
+      <div class="text-dccm-black text-3xl font-medium">DCCM</div>
+      <div class="flex justify-between" id="buttonsContainer">
+        <div class="balance-container">
+          <button
+            class="bg-blue-500 rounded-md px-3 py-2 text-white text-lg font-medium"
+            id="connect"
+          >
+            Connect Wallet
+          </button>
+          <div id="balance" class="hidden"></div>
+        </div>
+        <button
+          class="bg-green-500 rounded-md px-3 py-2 text-white text-lg font-medium hidden"
+          id="listCar"
+        >
+          List A Car
+        </button>
+      </div>
+    </div>
+    <div class="py-6 px-10">
+      <div
+        class="rounded-md mb-4 justify-between items-center px-5 h-14 hidden"
+        id="notification"
+      >
+        <p>Listing Aston Martin</p>
+        <button class="text-xl" id="cancelNotif">x</button>
+      </div>
+      <div
+        class="text-[1.75rem] md-max:text-[1.5rem] sm-max:text-[1.25rem] xs-max:text-[1rem] font-medium text-[#282828]"
+      >
+        Decentralized Classic Cars Marketplace
+      </div>
+      <div
+        class="grid grid-cols-3 gap-4 lg-max:grid-cols-2 md-max:grid-cols-1 mt-8"
+        id="marketplace"
+      ></div>
+    </div>
+    <footer class="bg-white mt-auto border-black border-t">
+      <div
+        class="mx-auto max-w-7xl py-6 px-4 sm-min:px-6 md-min:flex md-min:items-center md-min:justify-between lg-min:px-8"
+      >
+        <div class="flex justify-center space-x-6 md-min:order-2">
+          <a
+            href="https://twitter.com/JPhleg"
+            class="text-black hover:text-forest"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="sr-only">{item.name}</span>
+            <item.icon class="h-6 w-6" aria-hidden="true" />
+          </a>
+        </div>
+        <div class="mt-8 md-min:order-1 md-min:mt-0">
+          <p class="text-center text-base text-black">
+            &copy; 2024 Developed with 🖤 by J0shcodes.
+          </p>
+        </div>
+      </div>
+    </footer>
+    <div
+      class="fixed z-10 left-0 top-0 bg-modal-background w-full h-full hidden justify-center items-center"
+      id="modal-container"
+    >
+      <form class="bg-white rounded-md p-6 w-[25%]">
+        <h2 class="text-[#282828] text-2xl font-semibold text-center mb-5">
+          List a Car
+        </h2>
+        <div>
+          <div>
+            <label class="text-[#282828]">Car Name</label>
+            <div>
+              <input
+                required
+                type="text"
+                name="name"
+                id="name"
+                class="w-full bg-[#e4e4e4] p-2 mt-2 mb-3 outline-none text-[#282828] rounded-lg"
+                placeholder="Ford, Ferrari, etc"
+              />
+            </div>
+          </div>
+          <div class="flex justify-between">
+            <div>
+              <label class="text-[#282828]">Car Model</label>
+              <div>
+                <input
+                  required
+                  type="text"
+                  name="model"
+                  id="model"
+                  class="w-full bg-[#e4e4e4] p-2 mt-2 mb-3 outline-none text-[#282828] rounded-lg"
+                  placeholder="c30, GLE, etc"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label class="text-[#282828]">Car Year</label>
+              <div>
+                <input
+                  required
+                  type="text"
+                  name="year"
+                  id="year"
+                  class="w-full bg-[#e4e4e4] p-2 mt-2 mb-3 outline-none text-[#282828] rounded-lg"
+                  placeholder="1965, 1999, etc"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <label class="text-[#282828]">Car Image (URL)</label>
+            <div>
+              <input
+                required
+                type="text"
+                name="image"
+                id="image"
+                class="w-full bg-[#e4e4e4] p-2 mt-2 mb-3 outline-none text-[#282828] rounded-lg"
+              />
+            </div>
+          </div>
+
+          <div class="flex justify-between">
+            <div>
+              <label class="text-[#282828]">Car Location</label>
+              <div>
+                <input
+                  required
+                  type="text"
+                  name="location"
+                  id="location"
+                  class="w-full bg-[#e4e4e4] p-2 mt-2 mb-3 outline-none text-[#282828] rounded-lg"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label class="text-[#282828]">Car Price (cUSD)</label>
+              <div>
+                <input
+                  required
+                  type="text"
+                  name="price"
+                  id="price"
+                  class="w-full bg-[#e4e4e4] p-2 mt-2 mb-3 outline-none text-[#282828] rounded-lg"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <label class="text-[#282828]">Car Description</label>
+            <div>
+              <textarea
+                required
+                name="details"
+                id="details"
+                class="w-full bg-[#e4e4e4] p-2 mt-2 mb-3 outline-none text-[#282828] resize-none h-32 rounded-lg"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="px-4 py-3 text-right">
+          <button
+            type="button"
+            class="py-2 px-4 text-[#282828] rounded hover:bg-gray-700 hover:text-white mr-2 border border-solid border-[#282828] cancel"
+          >
+            <i class="fas fa-times"></i> Cancel
+          </button>
+          <button
+            type="submit"
+            class="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-700 mr-2"
+            id="submit"
+          >
+            List Car
+          </button>
+        </div>
+      </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@celo/contractkit@8.0.0/lib/index.min.js"></script>
+  </body>
+</html>
